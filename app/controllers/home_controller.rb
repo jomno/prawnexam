@@ -79,25 +79,26 @@ class HomeController < ApplicationController
       font_families.update(
         HomeController.font_setting()
       )
-      font "NanumBarunGothic"
+      font "Human"
+
       font_size (12) {text "NO 297060-1", align: :left}
       move_down 15
       font_size (25) {text "청   구   서", align: :center, style: :bold}
       move_down 35
-      font_size (12) {text "수 신: 신안산대학교 (경기도 안산시 단원구 초지동 671)"}
+      font_size (12) {text "수       신: 신안산대학교 (경기도 안산시 단원구 초지동 671)", character_spacing: 0.5}
       move_down 20
-      font_size (12) {text "발 신: 세계교육연구원 (호주 Melbourne Politechnic 한국 대표부)"}
+      font_size (12) {text "발       신: 세계교육연구원 (호주 Melbourne Politechnic 한국 대표부)", character_spacing: 0.5}
       move_down 20
-      font_size (12) {text "일 자: 2016년 10월 11일"}
+      font_size (12) {text "일       자: 2016년 10월 11일", character_spacing: 0.5}
       move_down 20
-      font_size (12) {text "항 목: 국제관광경영과 교육과정 공동운영 학기별 비용 (1학년 2학기)"}
+      font_size (12) {text "항       목: 국제관광경영과 교육과정 공동운영 학기별 비용 (1학년 2학기)", character_spacing: 0.5}
       move_down 20
-      detail_text=[["세부 내역:","<u><font size='10'>수업료 기준:</font></u>\t<u><font size='10'>￦2,890,000</font></u>"],
+      detail_text=[["세부  내역:","<u><font size='10'>수업료 기준:</font></u> <u><font size='10'>￦2,890,000</font></u>"],
       ["",""]]
       table (detail_text) do
-        row(0..1).style( :inline_format => true, :align => :left, :border_width => 0)
+        row(0..1).style( :inline_format => true, :align => :left, :border_width => 0, character_spacing: 0.5)
         row(1).height =1
-        row(0).columns(0).padding_left=-0.4
+        row(0).columns(0).padding_left=-0.5
         row(0).columns(0).width=320
       end
       move_down 10
@@ -106,28 +107,31 @@ class HomeController < ApplicationController
       ["국제관광경영과 교육과정 공동운영 학기별 비용 총 118명\n(총 118명 중 1~40명)","40","￦578,000\n<font size='10'>수업료의 20%</font>","￦23,120,000"],
       ["국제관광경영과 교육과정 공동운영 학기별 비용 총 118명\n(총 118명 중 1~40명)","40","￦578,000\n<font size='10'>수업료의 20%</font>","￦23,120,000"],
       [{content: "학기별 비용 총합계", colspan: 3},"￦51,442,000"]]
-      table(detail , :position => 50,  column_widths: [190,40,90,130], cell_style:  { :inline_format => true, :align => :center, :valign => :center, padding_top: -1}) do
+      table(detail , :position => 50,  column_widths: [190,40,90,130], cell_style:  { :inline_format => true, :align => :center, :valign => :center, padding_top: -1, character_spacing: 0.5}) do
         cells.border_width =0.5
-        row(0..1).border_top_width=2
+        row(0..1).border_top_width=1
         [0..4].each do |a|
-          row(a).columns(0).border_left_width=2
-          row(a).columns(3).border_right_width=2
-          row(4).columns(a).border_bottom_width=2
-          row(4).columns(a).border_top_width=2
+          row(a).columns(0).border_left_width=1
+          row(a).columns(3).border_right_width=1
+          row(4).columns(a).border_bottom_width=1
+          row(4).columns(a).border_top_width=1
         end
+        row(1..3).padding=3
+        row(1..3).padding_bottom=8
         row(0).height=35
         row(4).height=35
         row(4).background_color='AAFFAA'
       end
       move_down 10
       font_size (12) {text_box "* 교육과정 공동운영 학기별 비용 반환 규정은 『교육과학기술부령 제1호 대학 수업료 및
+
          입학금에 관한 규칙의 \"수업료 또는 입학금의 반환 기준(제6조 2항 관련)\"에 따릅니다.",
        :at => [50, cursor]}
-      move_down 50
-      font_size (12) {text "입금 은행: 스탠다드차타드은행 130-20-450129 (예금주: 아이셉코리아)"}
+      move_down 70
+      font_size (12) {text "입금 은행: 스탠다드차타드은행 130-20-450129 (예금주: 아이셉코리아)",style: :bold, character_spacing: 0.5}
       move_down 100
       font_size (17) {text "아이셉코리아(주)세계교육연구원
-        대표이사/원장 김 중 근", align: :center}
+        대표이사/원장 김 중 근", align: :center, style: :bold, character_spacing: 0.5}
       move_down 50
       #stroke_axis
       self.line_width = 18
@@ -142,12 +146,12 @@ class HomeController < ApplicationController
       font_families.update(
         HomeController.font_setting()
       )
-      font "NanumBarunGothic"
+      font "Human"
       font_size (10)
       # stroke_axis
-      font_size (20) {text_box "INVOICE", align: :center, at: [0,694]}
+      font_size (20) {text_box "INVOICE", align: :center, at: [0,692], style: :bold}
       stroke_rectangle [0, 700], 520, 35
-      move_down 120
+      move_down 130
       invoice = [["■ INVOICE NO:","296120"],
       ["■ DATE:","01 Apr 2016"],
       ["■ TO:","Luke Howard
@@ -158,7 +162,7 @@ class HomeController < ApplicationController
         Seoul 03157 Korea"]]
       table invoice ,  column_widths: [140,350], cell_style:  { :inline_format => true, :align => :left, :border_width => 0}
       move_down 30
-      description = [["NO","DESCRIPTION",{content: "AMOUNT CLAIMED",colspan: 2}],
+      description = [["NO","DESCRIPTIONS",{content: "AMOUNT CLAIMED",colspan: 2}],
       [{content: "", colspan: 4}],
       ["1","Name in Full: SEO, Hoon Gyo (165910)
         Date of Birth: 17, Oct. 1989
@@ -168,7 +172,8 @@ class HomeController < ApplicationController
         Amount Claimed: AUD600","Sub Total","AUD600"],
       [{content: "", colspan: 4}],
       [{content: "" , colspan: 2},"TOTAL","AUD600"]]
-      table(description) do
+      table(description, cell_style:  { size: 13,}) do
+
         cells.padding = 3
         cells.padding_top =1
         columns(0).width= 30
@@ -179,7 +184,7 @@ class HomeController < ApplicationController
         row(3).height=2
         row(0).style(:size =>10)
         row(0).columns(1..2).style(:align => :center)
-        row(2).columns(1).style(:padding => [0, 0, 0, 30])
+        row(2).columns(1).style(:padding => [2, 0, 0, 30])
         row(4).columns(0).borders=[:left,:bottom]
         [2,4].each do |a|
           row(a).columns(2).borders=[:bottom]
@@ -213,7 +218,7 @@ class HomeController < ApplicationController
       )
       font "NanumBarunGothic"
       font_size (10)
-      font_size (15){text "입출금 관리", align: :center}
+      font_size (15){text "입출금 관리", align: :center, character_spacing: 0.8}
       move_down 10
       text "날 짜 : 2016-09-02 ~"
       move_down 10
@@ -255,8 +260,8 @@ class HomeController < ApplicationController
         bold: "#{Rails.root}/vendor/assets/fonts/NanumBarunGothicBold.ttf"
       },
       "Human" => {
-        normal: "#{Rails.root}/vendor/assets/fonts/hm_v2.ttf",
-        bold: "#{Rails.root}/vendor/assets/fonts/hmkmm-boram2059.ttf"
+        normal: "#{Rails.root}/vendor/assets/fonts/NanumMyung.ttf",
+        bold: "#{Rails.root}/vendor/assets/fonts/NanumMyungBold.ttf"
       }
       }
   end
